@@ -1,0 +1,132 @@
+@import url('./fonts/AvenirNext-Regular.ttf');
+@font-face {
+  font-family: 'Cervo-Regular';
+  src: url("./fonts/Cervo-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  /*font-family: 'AvenirNext', sans-serif;*/
+  color: #ffffff;
+}
+
+.section {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: 1s ease;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.section:nth-child(1) {
+  background-image: url("../images/jeremy-bishop-391905.jpg");
+  z-index: 10;
+}
+
+.section:nth-child(2) {
+  background-image: url("../images/nathan-mcbride-229640.jpg");
+  z-index: 9;
+}
+
+.section:nth-child(3) {
+  background-image: url("../images/rob-bye-250270.jpg");
+  z-index: 8;
+}
+
+.section:nth-child(4) {
+  background-image: url("../images/valdisole_main.jpg");
+  z-index: 7;
+}
+
+.section.fp-completely.active {
+  z-index: 20;
+}
+
+.section.fp-completely.active .content-wrapper {
+  margin-top: 0;
+  transform: translateY(0);
+  position: relative;
+}
+
+.section.prev.down {
+  animation-name: toup;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.section.active.up {
+  animation-name: fromup;
+}
+
+.section.active.down {
+  animation-name: fromdown;
+  z-index: 12;
+}
+
+.section.next.up {
+  animation-name: todown;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 12;
+}
+
+@keyframes fromdown {
+  from {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes toup {
+  from {
+    z-index: 20;
+    transform: translateY(0%);
+  }
+  100% {
+    z-index: 20;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes fromup {
+  from {
+    z-index: 12;
+    transform: scale(1.2);
+  }
+  100% {
+    z-index: 12;
+    transform: scale(1);
+  }
+}
+
+@keyframes todown {
+  from {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.section .content {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 150px;
+  flex-direction: column;
+}
+
+.section .content h1 {
+  font-family: 'Cervo-Regular','Helvetica','Arial','Roboto','sans-serif';
+  font-size: 64px;
+  line-height: 1!important;
+  letter-spacing: 2px;
+  font-weight: 200;
+}
